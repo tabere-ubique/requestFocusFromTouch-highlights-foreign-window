@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.ViewGroup
+import android.view.Window
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -35,10 +37,10 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetJavaScriptEnabled")
     private fun openWebViewDialog() {
         val dialog = Dialog(this, R.style.Theme_WebViewColorsBug).apply {
-            requestWindowFeature(1)
+            requestWindowFeature(Window.FEATURE_NO_TITLE)
         }
         WebView(this).apply {
-            layoutParams = LinearLayout.LayoutParams(-1, -1)
+            layoutParams = ViewGroup.LayoutParams(-1, -1)
         }.also {
 
             it.settings.apply {
@@ -51,6 +53,9 @@ class MainActivity : AppCompatActivity() {
             it.webViewClient = object : WebViewClient() {
 
                 override fun onPageFinished(view: WebView, url: String) {
+                    /* The problem is with this code here. Calling requestFocusFromTouch()
+                    * seems to be propagating the focusing to the MainActivity.
+                    * We should not use it! */
                     if (doCallRequestFromTouch) {
                         it.requestFocusFromTouch()
                     }
