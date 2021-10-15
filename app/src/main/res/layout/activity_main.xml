@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/purple_200"
+	tools:context=".MainActivity">
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_percent="0.5"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<View
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:background="@color/purple_200"
+		android:clickable="true"
+		android:focusable="true"
+		app:layout_constraintBottom_toBottomOf="@id/guideline"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<com.google.android.material.button.MaterialButton
+		android:id="@+id/openWebView"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="Open WebView"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintEnd_toEndOf="parent"
+		app:layout_constraintStart_toStartOf="parent"
+		app:layout_constraintTop_toTopOf="parent" />
+
+	<RadioGroup
+		android:id="@+id/radioGroup"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:gravity="center"
+		app:layout_constraintBottom_toBottomOf="parent"
+		app:layout_constraintTop_toTopOf="@id/guideline">
+
+		<com.google.android.material.radiobutton.MaterialRadioButton
+			android:id="@+id/doRequestFromTrouch"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:checked="true"
+			android:text="requestFocusFromTouch()" />
+
+		<com.google.android.material.radiobutton.MaterialRadioButton
+			android:id="@+id/dontRequestFromTrouch"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="don't requestFocusFromTouch()" />
+
+	</RadioGroup>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
