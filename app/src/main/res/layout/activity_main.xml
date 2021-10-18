@@ -18,17 +18,15 @@
 	<View
 		android:layout_width="match_parent"
 		android:layout_height="0dp"
-		android:background="@color/purple_200"
-		android:clickable="true"
 		android:focusable="true"
 		app:layout_constraintBottom_toBottomOf="@id/guideline"
 		app:layout_constraintTop_toTopOf="parent" />
 
 	<com.google.android.material.button.MaterialButton
-		android:id="@+id/openWebView"
+		android:id="@+id/openDialog"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:text="Open WebView"
+		android:text="Open Dialog"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
